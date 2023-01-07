@@ -121,7 +121,7 @@ export const ProfileForm = () => {
               </Grid>
               <Grid item>
                 <p>
-                  Let the Coursera community of other learners and instructors
+                  Let the EthicalByte community of other learners and instructors
                   recognize you.
                 </p>
               </Grid>

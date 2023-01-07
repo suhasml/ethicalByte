@@ -51,7 +51,7 @@ const CategoryCoursesPage = () => {
   const { category } = useParams();
   const history = useHistory();
 
-  useDocumentTitle(`Coursera | Browse`);
+  useDocumentTitle(`EthicalByte | Browse`);
 
   console.log(courses);
   React.useEffect(() => {

@@ -19,7 +19,7 @@ import useDocumentTitle from '../../CustomHooks/useDocumentTitle';
 
 // eslint-disable-next-line react/prop-types
 const CoursesList = () => {
-  useDocumentTitle('Coursera | Search');
+  useDocumentTitle('EthicalByte | Search');
 
   const classes = useStyles();
   const { query } = useParams();

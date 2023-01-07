@@ -300,7 +300,7 @@ const Navbar = () => {
                         marginTop: '15px',
                       }}
                     >
-                      New to Coursera?&nbsp;
+                      New to EthicalByte?&nbsp;
                       <span style={{ color: '#0056D2' }}>Sign Up</span>
                     </Container>
                   </Box>
