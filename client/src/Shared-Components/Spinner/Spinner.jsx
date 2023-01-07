@@ -24,7 +24,7 @@ const Spinner = () => {
   return (
     <SpinnerWrapper>
       <div>
-        <h1>Coursera Loading...</h1>
+        <h1>EthicalByte Loading...</h1>
         <Loader type="Bars" color="#2175eb" height={100} width={100} />
       </div>
     </SpinnerWrapper>

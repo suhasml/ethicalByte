@@ -20,7 +20,7 @@ const CourseDetailsPage = () => {
   const course = useSelector((state) => state.courseDetails.course);
   const isLoading = useSelector((state) => state.courseDetails.isLoading);
 
-  useDocumentTitle(`Coursera | ${course.course_name}`);
+  useDocumentTitle(`EthicalByte | ${course.course_name}`);
 
   React.useEffect(() => {
     dispatch(fetchCourse(category, courseName));
