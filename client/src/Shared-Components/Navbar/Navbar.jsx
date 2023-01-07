@@ -395,7 +395,6 @@ const Navbar = () => {
                 <Button
                   onClick={toggleDrawer(anchor, true)}
                   variant="contained"
-                  color="primary"
                   endIcon={<ExpandMoreIcon />}
                   style={{ marginLeft: 50 }}
                   className={classes.exploreBtn}
@@ -456,7 +455,7 @@ const Navbar = () => {
             </div>
             {!isAuth && (
               <Button
-                style={{ backgroundColor: '#0056D2' }}
+                style={{ backgroundColor: '#ed1c24' }}
                 variant="contained"
                 color="primary"
                 onClick={handleJoin}

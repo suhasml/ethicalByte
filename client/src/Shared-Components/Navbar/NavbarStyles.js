@@ -142,7 +142,8 @@ export default makeStyles((theme) => ({
     color: 'red',
   },
   exploreBtn: {
-    background: '#0056D2',
+    background: '#ed1c24',
     fontSize: '14px',
+    color: 'white',
   },
 }));

@@ -38,6 +38,7 @@ export const HomeBanner = () => {
             <Grid item style={{ marginLeft: '25px' }}>
               <Button
                 variant="contained"
+                style={{ backgroundColor: '#ed1c24' }}
                 className={`${classes.heroBtn} ${classes.mediumHeroBtn}`}
               >
                 Join For Free
@@ -51,7 +52,7 @@ export const HomeBanner = () => {
                   <Box height="100%">
                     <img
                       className={classes.heroImg}
-                      src="https://bit.ly/2Sw2WJR"
+                      src="https://i.ibb.co/P1khVKG/bookdude.png"
                       alt="hero img"
                     />
                   </Box>
@@ -62,7 +63,7 @@ export const HomeBanner = () => {
                   <Box height="75%" className={classes.mediumHeroImg}>
                     <img
                       className={classes.heroImg}
-                      src="https://bit.ly/2Sw2WJR"
+                      src="https://i.ibb.co/P1khVKG/bookdude.png"
                       alt="hero img"
                     />
                   </Box>
@@ -77,7 +78,7 @@ export const HomeBanner = () => {
                   <Box height="50%" style={{ marginLeft: '40%' }}>
                     <img
                       className={classes.heroImg}
-                      src="https://bit.ly/2Sw2WJR"
+                      src="https://i.ibb.co/P1khVKG/bookdude.png"
                       alt="hero img"
                     />
                   </Box>

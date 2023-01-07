@@ -17,14 +17,17 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
     width: theme.spacing(5),
     height: theme.spacing(6),
+    
   },
   icon: {
     marginTop: '70%',
     color: 'white',
+    
   },
   iconBtnDiv: {
     background: '#0056D2',
     borderRadius: '0px 4px 4px 0px',
+    backgroundColor: '#ed1c24'
   },
 }));
 

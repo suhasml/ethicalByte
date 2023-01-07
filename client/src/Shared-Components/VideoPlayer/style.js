@@ -33,7 +33,7 @@ export default makeStyles(() => ({
     fontSize: 50,
     transform: 'scale(0.9)',
     '&:hover': {
-      color: '#fff',
+      color: 'ed1c24',
       transform: 'scale(1)',
     },
   },
