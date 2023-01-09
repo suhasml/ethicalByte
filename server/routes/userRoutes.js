@@ -27,8 +27,10 @@ router.route("/signup").post(async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);  
     const user = await User.create({ ...req.body, password: hashedPassword });
     res.status(201).json({ data: user });
-  } catch {
+  } catch(err){
     res.status(500).send();
+    // print what went wrong
+    console.log(err);
   }
 });
 

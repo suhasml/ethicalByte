@@ -153,7 +153,7 @@ export const VidPlayer = () => {
   const addBookmark = () => {
     const canvas = canvasRef.current;
     canvas.width = 160;
-    canvas.height = 90;
+    canvas.height = 190;
 
     const ctx = canvas.getContext('2d');
     ctx.drawImage(
@@ -202,7 +202,7 @@ export const VidPlayer = () => {
           <ReactPlayer
             url={videoUrl}
             width="100%"
-            height="100%"
+            height="500"
             muted={muted}
             ref={playerRef}
             playing={playing}
