@@ -9,7 +9,7 @@ export const HomeCont2 = () => {
       <h2 className={classes.heading}>Find your path to success</h2>
       <Container>
         <Grid container justify="space-evenly">
-          <Grid item>
+          {/* <Grid item>
             <Box>
               <img src="https://bit.ly/3yL7sEP" alt="img" />
             </Box>
@@ -28,7 +28,7 @@ export const HomeCont2 = () => {
               <span className={classes.spanSub}>humanities, and</span>
               <span className={classes.spanSub}>more</span>
             </Box>
-          </Grid>
+          </Grid> */}
 
           <Grid item>
             <Box>
@@ -36,19 +36,19 @@ export const HomeCont2 = () => {
             </Box>
             <Box style={{ marginBottom: '16px', marginTop: '16px' }}>
               <span className={classes.spanHead}>
-                <h3>Learn job-ready</h3>
+                <h3>Training</h3>
               </span>
-              <span className={classes.spanHead}>
+              {/* <span className={classes.spanHead}>
                 <h3>career skills</h3>
-              </span>
+              </span> */}
             </Box>
             <Box>
-              <span className={classes.spanSub}>in artificial</span>
-              <span className={classes.spanSub}>intelligence, machine</span>
-              <span className={classes.spanSub}>learning, data</span>
-              <span className={classes.spanSub}>science, cloud</span>
-              <span className={classes.spanSub}>engineering, and</span>
-              <span className={classes.spanSub}>more</span>
+              <span className={classes.spanSub}>We give training for</span>
+              <span className={classes.spanSub}>corporates and universities like</span>
+              <span className={classes.spanSub}>SDP(Skill development program),</span>
+              <span className={classes.spanSub}>FDP(Faculty development program)</span>
+              <span className={classes.spanSub}>and other I.T Trainings</span>
+
             </Box>
           </Grid>
 
@@ -58,17 +58,16 @@ export const HomeCont2 = () => {
             </Box>
             <Box style={{ marginBottom: '16px', marginTop: '16px' }}>
               <span className={classes.spanHead}>
-                <h3>Earn a</h3>
+                <h3>Internships</h3>
               </span>
-              <span className={classes.spanHead}>
+              {/* <span className={classes.spanHead}>
                 <h3>degree</h3>
-              </span>
+              </span> */}
             </Box>
             <Box>
-              <span className={classes.spanSub}>from the world&apos;s</span>
-              <span className={classes.spanSub}>leading universities in</span>
-              <span className={classes.spanSub}>business, computer</span>
-              <span className={classes.spanSub}>science, and more</span>
+              <span className={classes.spanSub}>Internship with the real time projects </span>
+              <span className={classes.spanSub}>which is acquired by</span>
+              <span className={classes.spanSub}>MNC companies</span>
             </Box>
           </Grid>
 
