@@ -83,6 +83,8 @@ export const enrollUser = (id, payload) => (dispatch) => {
     .then((res) => {
       setData('EthicalByteUser', res.data.data);
       dispatch(enrollSuccess(res.data.data));
+      // log the user details:
+      console.log(res.data.data);
     })
     .catch((err) => {
       dispatch(enrollFailure());
