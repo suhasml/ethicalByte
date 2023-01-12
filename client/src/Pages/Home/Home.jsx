@@ -12,15 +12,16 @@ import {
 import useDocumentTitle from '../../CustomHooks/useDocumentTitle';
 
 const Home = () => {
-  useDocumentTitle(`Coursera`);
+  useDocumentTitle(`EthicalByte`);
 
   return (
     <div>
       <Navbar />
       <HomeBanner />
-      <HomeCont1 />
+      
       <HomeCont2 />
       <HomeCont3 />
+      <HomeCont1 />
       <CommunityReviewSection />
       <Footer />
     </div>

@@ -4,7 +4,7 @@ export default makeStyles(() => ({
   root: {
     position: 'relative',
     width: '100%',
-    backgroundColor: 'rgb(235, 243, 255)',
+    backgroundColor: 'rgb(224, 131, 117)',
   },
   imgCont: {
     margin: '-32px 32px -32px 0px',
@@ -37,15 +37,15 @@ export default makeStyles(() => ({
     marginTop: '20px',
   },
   btn1: {
-    background: 'rgb(0, 86, 210)',
+    background: '#ed1c24',
     color: 'white',
     fontSize: '16px',
     fontWeight: 'bold',
     fontFamily: 'Source Sans Pro, Arial, sans-serif',
   },
   btn2: {
-    color: 'rgb(0, 86, 210)',
-    borderColor: 'rgb(0, 86, 210)',
+    color: '#ed1c24',
+    borderColor: '#ed1c24',
     fontSize: '16px',
     fontWeight: 'bold',
     fontFamily: 'Source Sans Pro, Arial, sans-serif',
