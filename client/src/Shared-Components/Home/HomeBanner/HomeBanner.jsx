@@ -40,6 +40,7 @@ export const HomeBanner = () => {
                 variant="contained"
                 style={{ backgroundColor: '#ed1c24' }}
                 className={`${classes.heroBtn} ${classes.mediumHeroBtn}`}
+                onClick={() => { window.location.href = '/signup'; }}
               >
                 Join For Free
               </Button>
