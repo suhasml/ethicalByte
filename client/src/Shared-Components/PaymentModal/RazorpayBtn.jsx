@@ -40,12 +40,14 @@ const PayByRazorPay = ({ amount, handleClose, courseId }) => {
     const rzp1 = await new window.Razorpay(options);
     rzp1.open();
     const enrolledCourses = [...activeUser.enrolled_courses, courseId];
-    console.log(enrolledCourses);
-    const payload = {
-      ...activeUser,
-      enrolled_courses: enrolledCourses,
-    };
+    // console.log(enrolledCourses);
+    // const payload = {
+    //   ...activeUser,
+    //   enrolled_courses: enrolledCourses,
+    // };
+    const payload = { enrolled_courses: enrolledCourses };
     dispatch(enrollUser(activeUser._id, payload));
+    
   };
   useEffect(() => {
     const script = document.createElement('script');

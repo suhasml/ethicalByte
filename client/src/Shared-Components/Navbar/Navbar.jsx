@@ -239,6 +239,7 @@ const Navbar = () => {
                                     onMouseDown={handleMouseDownPassword}
                                   >
                                     {values.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                    
                                   </IconButton>
                                 </InputAdornment>
                               ),
