@@ -23,7 +23,9 @@ export const HomeBanner = () => {
             <Grid item style={{ marginTop: '20px', marginLeft: '25px' }}>
               <h1>
                 <span className={classes.heroSpanHead}>EVERY</span>
+
                 <span className={classes.heroSpanHead}>BYTE OF</span>
+                
                 <span className={classes.heroSpanHead}>TECHNOLOGY</span>
               </h1>
             </Grid>
@@ -40,6 +42,7 @@ export const HomeBanner = () => {
                 variant="contained"
                 style={{ backgroundColor: '#ed1c24' }}
                 className={`${classes.heroBtn} ${classes.mediumHeroBtn}`}
+                onClick={() => { window.location.href = '/signup'; }}
               >
                 Join For Free
               </Button>
