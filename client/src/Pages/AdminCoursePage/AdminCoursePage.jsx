@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
-import { TextField, Container, Button, Modal, Grid } from '@material-ui/core';
+import { TextField, Container, Button, Modal, Grid, FormLabel } from '@material-ui/core';
 import styled from 'styled-components';
 import { fetchAllVideosParticularCourse } from '../../Redux/Admin/Course/actions';
 import { addVideoToCourse } from '../../Redux/Admin/Video/actions';
 import VideoComponent from './VideoComponent';
 import useStyles from './coursePageStyles';
+
 
 const ModalCont = styled.div`
   background-color: azure;
@@ -73,6 +74,15 @@ const AdminCoursePage = () => {
       });
   };
 
+  const [pdf, setPdf] = useState(null);
+  const handlePdfUpload = (event) => {
+    const pdfFile = event.target.files[0];
+    // do some validations if the file is pdf
+    // if valid, you can save the file to the state or redux store
+    setPdf(pdfFile);
+  }
+  
+
   const handleAddVideo = () => {
     const payload = {
       ...newVideoData,
@@ -83,20 +93,34 @@ const AdminCoursePage = () => {
       .then((res) => {
         alert('Video Added Successfully');
         const newVideoId = res.data.data._id;
-        // setVideoIds([...videoIds, newVideoId]);
         videoIds.push(newVideoId);
-      })
-      .then(() => {
+        
+        // code to upload pdf file and receive pdf_id
+        const formData = new FormData();
+        formData.append('pdf', pdf);
         axios
-          .patch(`http://localhost:5000/course/${courseId}`, {
-            video_ids: videoIds,
+          .post('http://localhost:5000/pdf/uploadpdf', formData)
+          .then(({ data }) => {
+            const pdfId = data.pdf_id;
+            // code to update video document with pdf_id
+            axios
+              .patch(`http://localhost:5000/video/${newVideoId}`, { pdf: pdfId })
+              .then(() => {
+                // code to update videoIds array in the course
+                axios
+                  .patch(`http://localhost:5000/course/${courseId}`, {
+                    video_ids: videoIds,
+                  })
+                  .then(() => fetchVideoIdsArray())
+                  .catch((err) => console.error(err));
+                dispatch(fetchAllVideosParticularCourse(courseId));
+              })
+              .catch((err) => console.error(err));
           })
-          .then(() => fetchVideoIdsArray())
           .catch((err) => console.error(err));
-
-        dispatch(fetchAllVideosParticularCourse(courseId));
       });
   };
+
 
   const handleOpen = () => {
     setOpen(true);
@@ -123,6 +147,9 @@ const AdminCoursePage = () => {
       .get(`http://localhost:5000/course/${courseId}`)
       .then((res) => setCourseTitle(res.data.data.course_name));
   }, [courseId]);
+
+ 
+
 
   return (
     <Container className={classes.root} maxWidth="xl">
@@ -192,6 +219,17 @@ const AdminCoursePage = () => {
                 variant="outlined"
                 name="week"
               />
+              {/* add a field to store pdfs */     }
+              <FormLabel component="legend">Upload PDF</FormLabel>
+              <TextField
+                type="file"
+                onChange={handlePdfUpload}
+                variant="outlined"
+                name="pdf"
+                accept="application/pdf"
+              />
+
+
               <Button variant="primary" onClick={handleAddVideo}>
                 <h2>Add Video to the Course</h2>
               </Button>
