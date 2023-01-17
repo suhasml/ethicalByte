@@ -46,7 +46,7 @@ export const Controls = forwardRef(
       elapsedTime,
       totalDuration,
       onChangeDisplayFormat,
-      onBookmark,
+      // onBookmark,
       videoTitle,
     },
     ref,
@@ -124,7 +124,7 @@ export const Controls = forwardRef(
               {videoTitle}
             </Typography>
           </Grid>
-          <Grid item>
+          {/* <Grid item>
             <Button
               onClick={onBookmark}
               variant="contained"
@@ -133,7 +133,7 @@ export const Controls = forwardRef(
             >
               Bookmark
             </Button>
-          </Grid>
+          </Grid> */}
         </Grid>
 
         {/* Middle controls */}

@@ -120,7 +120,7 @@ export default makeStyles((theme) => ({
     fontSize: '15px',
     marginTop: '8px',
     textAlign: 'left',
-    color: '#0056D2',
+    color: '#ed1c24',
   },
   logo: {
     height: '24px',
@@ -130,7 +130,7 @@ export default makeStyles((theme) => ({
   },
   avatar: {
     marginLeft: '10px',
-    background: '#55c1e6',
+    background: '#f06268',
     width: theme.spacing(5),
     height: theme.spacing(5),
   },

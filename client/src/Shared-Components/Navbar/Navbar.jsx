@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState } from 'react';
 import 'font-awesome/css/font-awesome.css';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import {
   AppBar,
   Toolbar,
@@ -24,14 +24,14 @@ import {
   TextField,
   Grid,
   InputAdornment,
-  Icon,
+  // Icon,
   Avatar,
 } from '@material-ui/core';
-import AppleIcon from '@material-ui/icons/Apple';
+// import AppleIcon from '@material-ui/icons/Apple';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import clsx from 'clsx';
-import FacebookIcon from '@material-ui/icons/Facebook';
+// import FacebookIcon from '@material-ui/icons/Facebook';
 import PersonIcon from '@material-ui/icons/Person';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import VisibilityIcon from '@material-ui/icons/Visibility';
@@ -46,7 +46,7 @@ import Spinner from '../Spinner';
 const Navbar = () => {
   const classes = useStyles();
   const history = useHistory();
-  const google = <Icon className={classNames(classes.icon, 'fa fa-google')} />;
+  // const google = <Icon className={classNames(classes.icon, 'fa fa-google')} />;
   const [open, setOpen] = React.useState(false);
   const [state, setState] = React.useState({
     top: false,
@@ -151,12 +151,12 @@ const Navbar = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem>
         <Button color="inherit">FOR ENTERPRISE</Button>
       </MenuItem>
       <MenuItem>
         <Button color="inherit">FOR STUDENTS</Button>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem>
         <Button type="button" color="inherit" onClick={handleOpen}>
           Login
@@ -258,7 +258,7 @@ const Navbar = () => {
                         variant="contained"
                         style={{
                           width: '100%',
-                          background: '#0056D2',
+                          background: '#ed1c24',
                           color: 'white',
                         }}
                         size="large"
@@ -269,7 +269,7 @@ const Navbar = () => {
                     </div>
                     <Divider style={{ marginTop: '22px' }} />
 
-                    <div className={classes.loginDiv}>
+                    {/* <div className={classes.loginDiv}>
                       <Button
                         variant="outlined"
                         style={{
@@ -283,8 +283,8 @@ const Navbar = () => {
                           Continue with Google&nbsp;&nbsp;&nbsp;&nbsp;
                         </strong>
                       </Button>
-                    </div>
-                    <div className={classes.loginDiv}>
+                    </div> */}
+                    {/* <div className={classes.loginDiv}>
                       <Button
                         variant="outlined"
                         style={{
@@ -295,8 +295,8 @@ const Navbar = () => {
                       >
                         <strong> Continue with Facebook</strong>
                       </Button>
-                    </div>
-                    <div className={classes.loginDiv}>
+                    </div> */}
+                    {/* <div className={classes.loginDiv}>
                       <Button
                         variant="outlined"
                         style={{
@@ -310,7 +310,7 @@ const Navbar = () => {
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </strong>
                       </Button>
-                    </div>
+                    </div> */}
                     <Container
                       style={{
                         color: '#706f6c',
@@ -319,7 +319,7 @@ const Navbar = () => {
                       }}
                     >
                       New to EthicalByte?&nbsp;
-                      <span style={{ color: '#0056D2' }}><a href='signup'>Sign Up</a></span>
+                      <span style={{ color: '#ed1c24' }}>Sign Up</span>
                     </Container>
                   </Box>
                 </Container>
@@ -444,8 +444,8 @@ const Navbar = () => {
           </Hidden>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <Button>FOR ENTERPRISE</Button>
-            <Button color="inherit">FOR STUDENTS</Button>
+            {/* <Button>FOR ENTERPRISE</Button>
+            <Button color="inherit">FOR STUDENTS</Button> */}
             {!isAuth && (
               <Button type="button" color="inherit" onClick={handleOpen}>
                 Login
