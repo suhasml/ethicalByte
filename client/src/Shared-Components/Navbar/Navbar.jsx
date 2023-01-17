@@ -238,7 +238,7 @@ const Navbar = () => {
                                     onClick={handleClickShowPassword}
                                     onMouseDown={handleMouseDownPassword}
                                   >
-                                    {values.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                    {values.showPassword ? <VisibilityIcon />:<VisibilityOffIcon />}
                                     
                                   </IconButton>
                                 </InputAdornment>

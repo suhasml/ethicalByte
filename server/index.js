@@ -6,6 +6,8 @@ const videoRoutes = require("./routes/videoRoutes");
 const userRoutes = require("./routes/userRoutes");
 const snapshotRoutes = require("./routes/snapshotRoutes");
 const noteRoutes = require("./routes/noteRoutes");
+const { propfind } = require("./routes/courseRoutes");
+const pdfRoutes = require("./routes/pdfRoutes");
 
 require("dotenv").config({ path: "./.env"});
 
@@ -21,6 +23,8 @@ app.use("/video", videoRoutes);
 app.use("/user", userRoutes);
 app.use("/snapshot", snapshotRoutes);
 app.use("/notes", noteRoutes);
+app.use("/pdf", pdfRoutes);
+
 
 const uri = process.env.DATABASE_URL;
 
