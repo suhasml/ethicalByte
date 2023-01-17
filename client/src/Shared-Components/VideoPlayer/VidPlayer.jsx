@@ -48,13 +48,13 @@ export const VidPlayer = () => {
   const controlsRef = useRef(null);
   // eslint-disable-next-line no-unused-vars
   const [timeDispalyFormat, setTimeDispalyFormat] = useState(true);
-  const [bookmarks, setBookmarks] = useState([]);
+  // const [bookmarks, setBookmarks] = useState([]);
 
-  React.useEffect(() => {
-    axios
-      .get(`http://localhost:5000/snapshot/get/${user._id}/${videoId}`)
-      .then((res) => setBookmarks(res.data.data));
-  }, [videoId]);
+  // React.useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:5000/snapshot/get/${user._id}/${videoId}`)
+  //     .then((res) => setBookmarks(res.data.data));
+  // }, [videoId]);
 
   // eslint-disable-next-line no-unused-vars
   const { playing, muted, volume, playbackRate, played, seeking } = state;
@@ -153,7 +153,7 @@ export const VidPlayer = () => {
   const addBookmark = () => {
     const canvas = canvasRef.current;
     canvas.width = 160;
-    canvas.height = 190;
+    canvas.height = 90;
 
     const ctx = canvas.getContext('2d');
     ctx.drawImage(
@@ -202,7 +202,7 @@ export const VidPlayer = () => {
           <ReactPlayer
             url={videoUrl}
             width="100%"
-            height="500"
+            height="90%"
             muted={muted}
             ref={playerRef}
             playing={playing}
@@ -244,7 +244,7 @@ export const VidPlayer = () => {
         </div>
         <div className={classes.bookmarkCont}>
           {bookmarks && (
-            <Grid container style={{ marginTop: '20px' }} spacing={3}>
+            <Grid container style={{ marginTop: '30px' }} spacing={3}>
               {bookmarks.map((el) => (
                 <Grid item key={el.id}>
                   <Paper
