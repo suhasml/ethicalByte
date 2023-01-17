@@ -7,6 +7,7 @@ export default makeStyles(() => ({
   playerDiv: {
     position: 'relative',
     width: '90%',
+    height:'75%',
     margin: 'auto',
     marginTop: '20px',
   },
@@ -23,13 +24,13 @@ export default makeStyles(() => ({
     zIndex: 1,
   },
   bookmarkCont: {
-    width: '90%',
+    width: '0%',
     margin: 'auto',
     overflowY: 'scroll',
-    height: '200px',
+    height: '0px',
   },
   controlBtn: {
-    color: '#777',
+    color: '#fff',
     fontSize: 50,
     transform: 'scale(0.9)',
     '&:hover': {
@@ -44,7 +45,7 @@ export default makeStyles(() => ({
     },
   },
   volSlider: {
-    width: 100,
+    width: 50,
   },
   bookmarkBtn: {
     background: '#0056D2',

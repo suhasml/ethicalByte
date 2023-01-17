@@ -21,13 +21,15 @@
     & > .MuiButton-root {
       width: 100%;
       height: 50px;
-      background-color: #2a72cc;
+      background-color: #ed1c24;
 
       :hover {
-        background-color: #0d52a7;
+        background-color: #f06268;
       }
     }
   `;
+  
+
 
   const SignupPage = () => {
     const init = {
@@ -56,6 +58,7 @@
     };
 
     return (
+      
       <div>
         <FormBox>
           <h1>Sign up Page</h1>
@@ -99,7 +102,9 @@
             Create my Account!
           </Button>
         </FormBox>
+        
       </div>
+     
     );
   };
 

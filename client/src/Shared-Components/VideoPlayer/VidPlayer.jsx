@@ -5,7 +5,7 @@ import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
-import { Grid, Paper, Typography } from '@material-ui/core';
+// import { Grid, Paper, Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import useStyles from './style';
 import { Controls } from './Controls';
@@ -183,7 +183,7 @@ export const VidPlayer = () => {
 
     axios
       .post('http://localhost:5000/snapshot/add', obj)
-      .then((res) => setBookmarks([...bookmarks, res.data.data]));
+      // .then((res) => setBookmarks([...bookmarks, res.data.data]));
   };
 
   const handleMouseMove = () => {
@@ -242,7 +242,7 @@ export const VidPlayer = () => {
             videoTitle={videoTitle}
           />
         </div>
-        <div className={classes.bookmarkCont}>
+        {/* <div className={classes.bookmarkCont}>
           {bookmarks && (
             <Grid container style={{ marginTop: '30px' }} spacing={3}>
               {bookmarks.map((el) => (
@@ -263,7 +263,7 @@ export const VidPlayer = () => {
             </Grid>
           )}
           <canvas ref={canvasRef} />
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core';
 export default makeStyles((theme) => ({
   root: {
     backgroundImage:
-      'url(https://s3.amazonaws.com/coursera_assets/growth_account_profile/account_bg_black2.png)',
+      'url(https://wallpaper.dog/large/10740535.jpg)',
     width: '100%',
     height: '368px',
     backgroundSize: 'cover',
@@ -21,10 +21,10 @@ export default makeStyles((theme) => ({
     height: theme.spacing(5),
   },
   updateIcon: {
-    color: '#0056D2',
+    color: '#ed1c24',
   },
   avatar: {
-    background: '#55c1e6',
+    background: '#f06268',
     width: theme.spacing(17),
     height: theme.spacing(17),
   },

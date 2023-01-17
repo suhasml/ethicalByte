@@ -31,7 +31,7 @@ const CourseBox = styled.div`
   padding: 20px 20px;
   margin: 20px;
   border-radius: 20px;
-  box-shadow: 2px 2px 5px #5c8dd3;
+  box-shadow: 2px 2px 5px #ed1c24;
   cursor: pointer;
   display: grid;
   grid-template-columns: 2fr 4fr;
@@ -47,7 +47,7 @@ const CourseBox = styled.div`
   }
 
   &:hover {
-    box-shadow: 2px 2px 10px #71a7f3;
+    box-shadow: 2px 2px 10px #ed1c24;
   }
 
   & h2 {
@@ -63,7 +63,7 @@ const CourseBox = styled.div`
   }
 
   & .level-badge {
-    background-color: #0156d1;
+    background-color: #ed1c24;
     color: white;
     width: fit-content;
     padding: 5px 10px;
@@ -77,7 +77,7 @@ export const ProfilePage = () => {
     (state) => state.auth.user.enrolled_courses,
   );
 
-  useDocumentTitle('Coursera | Profile');
+  useDocumentTitle('EthicalByte | Profile');
 
   return (
     <div>
