@@ -18,7 +18,7 @@ const PayByRazorPay = ({ amount, handleClose, courseId }) => {
     name: 'Course Title', //pass the donation title
     description: 'Step towards learning',
     image:
-      'https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/apple-touch-icon-144x144.png',
+      './public/logo192.png', //pass the image url
     handler: function (response) {
       console.log(response);
     },

@@ -35,6 +35,7 @@ import clsx from 'clsx';
 import PersonIcon from '@material-ui/icons/Person';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import Searchbar from '../Searchbar/Searchbar';
@@ -90,6 +91,19 @@ const Navbar = () => {
     }
   }, [isAuth]);
 
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+  
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   // LOGIN STUFF ENDS
 
   const toggleDrawer = (anchor, open1) => (event) => {
@@ -119,7 +133,7 @@ const Navbar = () => {
   };
 
   const handleJoin = () => {
-    history.push('/signup');
+    history.push('./signup');
   };
 
   if (isLoading) {
@@ -216,12 +230,16 @@ const Navbar = () => {
                             fullWidth
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            type="password"
+                            type={values.showPassword ? 'text' : 'password'}
                             InputProps={{
                               endAdornment: (
                                 <InputAdornment position="end">
-                                  <IconButton>
-                                    <VisibilityIcon />
+                                  <IconButton
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                  >
+                                    {values.showPassword ? <VisibilityIcon />:<VisibilityOffIcon />}
+                                    
                                   </IconButton>
                                 </InputAdornment>
                               ),
@@ -468,14 +486,6 @@ const Navbar = () => {
 
             {isAuth && (
               <>
-                <Divider orientation="vertical" flexItem />
-                {/* <Avatar
-                  className={classes.avatar}
-                  component={Link}
-                  to={`/profile/${user._id}`}
-                >
-                  <PersonIcon className={classes.person} />
-                </Avatar> */}
                 {user.profile_picture ? (
                   <Avatar
                     alt=""

@@ -29,7 +29,9 @@ export const HomeBanner = () => {
             <Grid item style={{ marginTop: '20px', marginLeft: '25px' }}>
               <h1>
                 <span className={classes.heroSpanHead}>EVERY</span>
+
                 <span className={classes.heroSpanHead}>BYTE OF</span>
+                
                 <span className={classes.heroSpanHead}>TECHNOLOGY</span>
               </h1>
             </Grid>
