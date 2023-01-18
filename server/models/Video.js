@@ -10,10 +10,7 @@ const video = new Schema({
     ref: "Course",
   },
   week: Number,
-  pdf_id: {
-    type: Schema.Types.ObjectId,
-    ref: "PDF"
-  }
+  pdf_urls: [String],
 });
 
 module.exports = mongoose.model("Video", video);

@@ -5,10 +5,17 @@ import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { TextField, Container, Button, Modal, Grid, FormLabel } from '@material-ui/core';
 import styled from 'styled-components';
+import firebase from 'firebase';
 import { fetchAllVideosParticularCourse } from '../../Redux/Admin/Course/actions';
 import { addVideoToCourse } from '../../Redux/Admin/Video/actions';
 import VideoComponent from './VideoComponent';
 import useStyles from './coursePageStyles';
+
+const storage = firebase.storage();
+
+const shortid = require('shortid');
+
+
 
 
 const ModalCont = styled.div`
@@ -74,61 +81,84 @@ const AdminCoursePage = () => {
       });
   };
 
-  const [pdf, setPdf] = useState(null);
-  const handlePdfUpload = (event) => {
-    const pdfFile = event.target.files[0];
-    // do some validations if the file is pdf
-    // if valid, you can save the file to the state or redux store
-    setPdf(pdfFile);
-  }
-  
+// const [numberOfPdfs, setNumberOfPdfs] = useState(1);
+const [pdfs, setPdfs] = useState([]);
 
-  const handleAddVideo = () => {
+const handlePdfUpload = (e) => {
+  setPdfs([...pdfs, e.target.files[0]]);
+}
+
+  
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const [pdfCount, setPdfCount] = useState(1);
+  const handlePdfCountChange = (e) => {
+      setPdfCount(e.target.value);
+  }
+
+
+  const handleAddVideo = async () => {
     const payload = {
       ...newVideoData,
       week: Number(newVideoData.week),
       course_id: courseId,
     };
-    dispatch(addVideoToCourse(payload))
-      .then((res) => {
-        alert('Video Added Successfully');
-        const newVideoId = res.data.data._id;
-        videoIds.push(newVideoId);
-        
-        // code to upload pdf file and receive pdf_id
-        const formData = new FormData();
-        formData.append('pdf', pdf);
-        axios
-          .post('http://localhost:5000/pdf/uploadpdf', formData)
-          .then(({ data }) => {
-            const pdfId = data.pdf_id;
-            // code to update video document with pdf_id
-            axios
-              .patch(`http://localhost:5000/video/${newVideoId}`, { pdf: pdfId })
-              .then(() => {
-                // code to update videoIds array in the course
-                axios
-                  .patch(`http://localhost:5000/course/${courseId}`, {
-                    video_ids: videoIds,
-                  })
-                  .then(() => fetchVideoIdsArray())
-                  .catch((err) => console.error(err));
-                dispatch(fetchAllVideosParticularCourse(courseId));
-              })
-              .catch((err) => console.error(err));
-          })
-          .catch((err) => console.error(err));
-      });
+
+    // Create a storage reference from our storage service
+    const storageRef = storage.ref();
+
+    const pdfUrls = [];
+
+    for (let i = 0; i < pdfs.length; i+=1) {
+        const pdfId = shortid.generate();
+        const pdfRef = storageRef.child(`pdfs/${pdfId}`);
+        const uploadPdfTask = pdfRef.put(pdfs[i]);
+        uploadPdfTask.on(
+            'state_changed',
+            (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log(`Upload is ${progress}% done`);
+            },
+            (error) => {
+                console.log(error);
+            },
+            async () => {
+                const pdfUrl = await uploadPdfTask.snapshot.ref.getDownloadURL();
+                pdfUrls.push(pdfUrl);
+                // check if all PDFs have been uploaded before proceeding
+                if (pdfUrls.length === pdfs.length) {
+                    payload.pdf_urls = pdfUrls;
+                    dispatch(addVideoToCourse(payload))
+                        .then((res) => {
+                            alert('Video Added Successfully');
+                            const newVideoId = res.data.data._id;
+                            videoIds.push(newVideoId);
+                            axios
+                                .patch(`http://localhost:5000/course/${courseId}`, {
+                                    video_ids: videoIds,
+                                })
+                                .then(() => {
+                                    fetchVideoIdsArray();
+                                    handleClose();
+                                });
+                        });
+                };
+            }
+        );
+    }
   };
+           
+
+
 
 
   const handleOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+ 
 
   useEffect(() => {
     setCourseId(params.id);
@@ -221,13 +251,22 @@ const AdminCoursePage = () => {
               />
               {/* add a field to store pdfs */     }
               <FormLabel component="legend">Upload PDF</FormLabel>
-              <TextField
-                type="file"
-                onChange={handlePdfUpload}
-                variant="outlined"
-                name="pdf"
-                accept="application/pdf"
-              />
+              <FormLabel component="legend">Number of PDFs</FormLabel>
+              <select onChange={handlePdfCountChange}>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                {/* Add more options for larger number of PDFs */}
+              </select>
+              {Array.from({length: pdfCount}, (_, i) => (
+                <div key={i}>
+                  <FormLabel component="legend">Upload PDF {i + 1}</FormLabel>
+                  <input
+                    type="file"
+                    onChange={handlePdfUpload}
+                  />
+                </div>
+          ))}
 
 
               <Button variant="primary" onClick={handleAddVideo}>
