@@ -19,6 +19,7 @@ import {
   getCourseName,
   getVideoTitle,
   getVideoId,
+  getPdfUrls
 } from '../../Redux/User/Video/actions';
 import useDocumentTitle from '../../CustomHooks/useDocumentTitle';
 
@@ -42,10 +43,11 @@ export const VideoSideBar = () => {
 
   const handleVideoMetaData = (index) => {
     // eslint-disable-next-line camelcase
-    const { video_url, title, _id } = videosArr[index];
+    const { video_url, title, _id, pdf_urls } = videosArr[index];
     dispatch(getVideoUrl(video_url));
     dispatch(getVideoTitle(title));
     dispatch(getVideoId(_id));
+    dispatch(getPdfUrls(pdf_urls));
     setCount(count + 1);
     setClicked(clicked.map((item, i) => i === index ? true : item));
     axios.post('/api/save-count', {

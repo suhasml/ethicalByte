@@ -9,6 +9,7 @@ import {
   GET_COURSENAME_FAILURE,
   GET_VIDEO_TITLE,
   GET_VIDEO_ID,
+  GET_PDF_URLS,
 } from './actionTypes';
 
 const init = {
@@ -89,6 +90,12 @@ export const userVideoReducer = (state = init, { type, payload }) => {
         ...state,
         isError: true,
       };
+    }
+
+    case GET_PDF_URLS:
+    return {
+        ...state,
+        pdfUrls: payload,
     }
 
     default: {

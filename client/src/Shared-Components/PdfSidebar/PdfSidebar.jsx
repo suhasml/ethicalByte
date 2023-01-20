@@ -1,9 +1,10 @@
-// a pdf sidebar which fetches pdfs stored in firebase storage and displays them as links:
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Grid, Paper, Box, Divider } from '@material-ui/core';
-import { storage } from '../../utils/firebase';
+import { getPdfUrls } from '../../Redux/User/Video/actions';
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,42 +22,42 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const PdfSidebar = () => {
-    const videoId = useSelector((state) => state.userVideo.videoId);
-    const [pdfs, setPdfs] = useState([]);
-    const classes = useStyles();
+  const pdfUrls = useSelector((state) => state.userVideo.pdfUrls);
+  const dispatch = useDispatch();
+  const classes = useStyles();
+ 
 
-    useEffect(() => {
-        const getPdfs = async () => {
-            const pdfsRef = storage.ref(videoId).child('pdfs');
-            const pdfsList = await pdfsRef.listAll();
-            pdfsList.items.forEach(async (pdfRef) => {
-                const pdfUrl = await pdfRef.getDownloadURL();
-                setPdfs((prevPdfs) => [...prevPdfs, pdfUrl]);
-            });
-        };
-        getPdfs();
-    }, [videoId]);
+  useEffect(() => {
+    
+    dispatch(getPdfUrls());
+  }, [dispatch]);
 
-    return (
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>
-              <Typography variant="h5" gutterBottom>
-                PDFs
-              </Typography>
-              <Divider />
-              <Box m={2} />
-              {pdfs.map((pdf) => (
-                <a href={pdf} download> 
-                  <Typography variant="h6" gutterBottom>
-                    {pdf}
-                  </Typography>
+  return (
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <Typography variant="h5" gutterBottom>
+              PDFs
+            </Typography>
+            <Divider />
+            <Box m={2} />
+            {Array.isArray(pdfUrls) ? pdfUrls.map((pdfUrl, index) => (
+              <Typography key={pdfUrl} variant="body1" gutterBottom>
+                <a className={classes.link} href={pdfUrl} target="_blank" rel="noopener noreferrer">
+                  Resource {index + 1}
                 </a>
-                ))}
-            </Paper>
-          </Grid>
+              </Typography>
+            )) : <Typography variant="body1" gutterBottom>No PDFs available</Typography>}
+          </Paper>
         </Grid>
-      </div>
-    );
+      </Grid>
+    </div>
+  );
 }
+
+
+
+
+
+

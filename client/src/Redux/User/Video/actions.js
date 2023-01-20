@@ -11,7 +11,8 @@ import {
   GET_VIDEO_ID,
   GET_PDF_FAILURE,
   GET_PDF_REQUEST,
-  GET_PDF_SUCCESS
+  GET_PDF_SUCCESS,
+  GET_PDF_URLS,
 } from './actionTypes';
 
 export const getVideosRequest = () => {
@@ -50,6 +51,13 @@ export const getVideoTitle = (payload) => {
 export const getVideoId = (payload) => {
   return {
     type: GET_VIDEO_ID,
+    payload,
+  };
+};
+
+export const getPdfUrls = (payload) => {
+  return {
+    type: GET_PDF_URLS,
     payload,
   };
 };
@@ -128,3 +136,5 @@ export const getPdf = (videoId) => (dispatch) => {
       console.log(err);
     });
 };
+
+
