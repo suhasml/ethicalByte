@@ -7,7 +7,7 @@ export default makeStyles(() => ({
   playerDiv: {
     position: 'relative',
     width: '90%',
-    height:'75%',
+    height:'50%',
     margin: 'auto',
     marginTop: '20px',
   },

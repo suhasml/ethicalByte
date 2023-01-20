@@ -9,6 +9,9 @@ import {
   GET_VIDEO_URL,
   GET_VIDEO_TITLE,
   GET_VIDEO_ID,
+  GET_PDF_FAILURE,
+  GET_PDF_REQUEST,
+  GET_PDF_SUCCESS
 } from './actionTypes';
 
 export const getVideosRequest = () => {
@@ -90,6 +93,38 @@ export const getCourseName = (courseId) => (dispatch) => {
     .then((res) => dispatch(getCourseNameSuccess(res.data.data)))
     .catch((err) => {
       dispatch(getCourseNameFailure());
+      console.log(err);
+    });
+};
+
+
+export const getPdfRequest = () => {
+  return {
+    type: GET_PDF_REQUEST,
+  };
+};
+
+export const getPdfSuccess = (payload) => {
+  return {
+    type: GET_PDF_SUCCESS,
+    payload,
+  };
+};
+
+export const getPdfFailure = () => {
+  return {
+    type: GET_PDF_FAILURE,
+  };
+};
+
+export const getPdf = (videoId) => (dispatch) => {
+  dispatch(getPdfRequest());
+
+  return axios
+    .get(`http://localhost:5000/pdf/${videoId}`)
+    .then((res) => dispatch(getPdfSuccess(res.data.data)))
+    .catch((err) => {
+      dispatch(getPdfFailure());
       console.log(err);
     });
 };

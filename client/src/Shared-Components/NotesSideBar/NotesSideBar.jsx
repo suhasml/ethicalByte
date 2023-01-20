@@ -95,7 +95,7 @@ export const NotesSideBar = () => {
             'Access-Control-Allow-Origin': '*',
           },
         },
-      )
+      )   
       .then((res) => {
         console.log(res.data.data);
         return res.data.data;

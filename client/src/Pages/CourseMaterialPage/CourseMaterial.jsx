@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { VidPlayer } from '../../Shared-Components/VideoPlayer/VidPlayer';
 import { VideoSideBar } from '../../Shared-Components/VideoSideBar/VideoSideBar';
 import Navbar from '../../Shared-Components/Navbar/Navbar';
-import { NotesSideBar } from '../../Shared-Components/NotesSideBar/NotesSideBar';
+import { PdfSidebar } from '../../Shared-Components/PdfSidebar/PdfSidebar';
+
 
 const Grid = styled.div`
   display: grid;
@@ -17,7 +18,7 @@ export const CourseMaterial = () => {
       <Grid>
         <VideoSideBar />
         <VidPlayer />
-        <NotesSideBar />
+        <PdfSidebar />
       </Grid>
     </div>
   );
