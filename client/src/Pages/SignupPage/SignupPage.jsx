@@ -10,16 +10,16 @@
     align-items: center;
     gap: 10px;
     flex-direction: column;
-    width: 500px;
+    width: 90%;
     margin: auto;
     margin-top: 100px;
 
     & > .MuiTextField-root {
-      width: 100%;
+      width: 90%;
     }
 
     & > .MuiButton-root {
-      width: 100%;
+      width: 90%;
       height: 50px;
       background-color: #ed1c24;
 
