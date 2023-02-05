@@ -7,9 +7,13 @@ export default makeStyles(() => ({
   playerDiv: {
     position: 'relative',
     width: '90%',
-    height:'50%',
+    height: '50%',
     margin: 'auto',
     marginTop: '20px',
+    [`@media (max-width: 600)`]: {
+      width: '100%',
+      height: '60%',
+    },
   },
   controlsDiv: {
     position: 'absolute',
@@ -46,6 +50,9 @@ export default makeStyles(() => ({
   },
   volSlider: {
     width: 50,
+    [`@media (max-width: 600px)`]: {
+      width: 30,
+    },
   },
   bookmarkBtn: {
     background: '#0056D2',

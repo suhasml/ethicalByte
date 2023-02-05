@@ -21,6 +21,10 @@ export default makeStyles((theme) => ({
     whiteSpace: 'normal',
     wordSpacing: '0px',
     color: 'rgb(31,31,31)',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '48px',
+      lineHeight: '56px',
+    },
   },
   heroSpanSub: {
     display: 'block',
@@ -39,6 +43,10 @@ export default makeStyles((theme) => ({
     whiteSpace: 'normal',
     wordSpacing: '0px',
     color: 'rgb(31,31,31)',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '16px',
+      lineHeight: '24px',
+    },
   },
   heroBtn: {
     background: '#0056D2',
@@ -49,6 +57,10 @@ export default makeStyles((theme) => ({
     lineHeight: '28px',
     height: '72px',
     width: '238px',
+    [theme.breakpoints.down('sm')]: {
+      height: '48px',
+      width: '152.38px',
+    },
   },
   heroImg: {
     height: '100%',

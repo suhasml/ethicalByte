@@ -124,16 +124,6 @@ export const Controls = forwardRef(
               {videoTitle}
             </Typography>
           </Grid>
-          {/* <Grid item>
-            <Button
-              onClick={onBookmark}
-              variant="contained"
-              color="primary"
-              className={classes.bookmarkBtn}
-            >
-              Bookmark
-            </Button>
-          </Grid> */}
         </Grid>
 
         {/* Middle controls */}

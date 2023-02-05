@@ -10,9 +10,15 @@ export default makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
   },
   drawerPaper: {
     width: drawerWidth,
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,

@@ -7,6 +7,10 @@ export default makeStyles(() => ({
     width: '100%',
     backgroundColor: 'white',
     textAlign: 'center',
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: '32px',
+      paddingBottom: '32px',
+    },
   },
   heading: {
     fontWeight: '600',
@@ -15,6 +19,11 @@ export default makeStyles(() => ({
     lineHeight: '34px',
     fontSize: '44px',
     fontFamily: 'Source Sans Pro, Arial, sans-serif',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '32px',
+      lineHeight: '40px',
+      marginBottom: '40px',
+    },
   },
   spanHead: {
     display: 'block',
@@ -23,10 +32,17 @@ export default makeStyles(() => ({
     fontFamily: 'Source Sans Pro, Arial, sans-serif',
     fontSize: '20px',
     lineHeight: '28px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '16px',
+      lineHeight: '24px',
+    },
   },
   spanSub: {
     display: 'block',
     fontSize: '20px',
     fontWeight: 'normal',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '16px',
+    },
   },
 }));

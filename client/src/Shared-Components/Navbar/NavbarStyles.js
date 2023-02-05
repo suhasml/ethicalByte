@@ -88,12 +88,21 @@ export default makeStyles((theme) => ({
     borderRadius: '5px',
     height: '85vh',
     width: '26vw',
+    [theme.breakpoints.down('sm')]: {
+      width: '80vw',
+    },
   },
   list: {
     width: 250,
+    [theme.breakpoints.down('sm')]: {
+      width: 200,
+    },
   },
   fullList: {
     width: 'auto',
+    [theme.breakpoints.down('sm')]: {
+      width: 200,
+    },
   },
   modalCont: {
     fontFamily: 'Source Sans Pro, Arial, sans-serif',
@@ -103,27 +112,45 @@ export default makeStyles((theme) => ({
     textAlign: 'center',
     width: '100%',
     height: '100%',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '20px',
+    },
   },
   spanField: {
     display: 'block',
     width: '80%',
+    [theme.breakpoints.down('sm')]: {
+      width: '70%',
+    },
   },
   inputHead: {
     fontSize: '15px',
     textAlign: 'left',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '12px',
+    },
   },
   loginDiv: {
     width: '100%',
     marginTop: '25px',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '15px',
+    },
   },
   fgtPass: {
     fontSize: '15px',
     marginTop: '8px',
     textAlign: 'left',
     color: '#ed1c24',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '12px',
+    },
   },
   logo: {
     height: '24px',
+    [theme.breakpoints.down('sm')]: {
+      height: '20px',
+    },
   },
   logoDiv: {
     cursor: 'pointer',
@@ -133,10 +160,18 @@ export default makeStyles((theme) => ({
     background: '#f06268',
     width: theme.spacing(5),
     height: theme.spacing(5),
+    [theme.breakpoints.down('sm')]: {
+      width: theme.spacing(4),
+      height: theme.spacing(4),
+    },
   },
   person: {
     width: theme.spacing(4),
     height: theme.spacing(4),
+    [theme.breakpoints.down('sm')]: {
+      width: theme.spacing(3),
+      height: theme.spacing(3),
+    },
   },
   error: {
     color: 'red',
@@ -145,5 +180,8 @@ export default makeStyles((theme) => ({
     background: '#ed1c24',
     fontSize: '14px',
     color: 'white',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '12px',
+    },
   },
 }));

@@ -43,6 +43,7 @@ import useStyles from './NavbarStyles';
 import { signin, logoutUser } from '../../Redux/Auth/actions';
 import Spinner from '../Spinner';
 
+
 const Navbar = () => {
   const classes = useStyles();
   const history = useHistory();
@@ -199,7 +200,7 @@ const Navbar = () => {
                             USERNAME
                           </strong>
                         </Grid>
-                        <Grid item lg={12} style={{ width: '400px' }}>
+                        <Grid item lg={12} style={{ width: '100%' }}>
                           <TextField
                             variant="outlined"
                             placeholder="username"
@@ -223,7 +224,7 @@ const Navbar = () => {
                             PASSWORD
                           </strong>
                         </Grid>
-                        <Grid item lg={12} style={{ width: '400px' }}>
+                        <Grid item lg={12} style={{ width: '100%' }}>
                           <TextField
                             variant="outlined"
                             placeholder="Enter your password"
@@ -319,7 +320,7 @@ const Navbar = () => {
                       }}
                     >
                       New to EthicalByte?&nbsp;
-                      <span style={{ color: '#ed1c24' }}>Sign Up</span>
+                      <a href='./signup' style={{textDecoration: 'None'}}><span style={{ color: '#ed1c24' }}>Sign Up</span></a>
                     </Container>
                   </Box>
                 </Container>
