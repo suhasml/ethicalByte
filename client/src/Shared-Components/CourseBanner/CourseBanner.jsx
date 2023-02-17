@@ -22,7 +22,7 @@ const CourseBanner = ({ course }) => {
   const classes = useStyles();
   const color2 = '#021B79';
   const color3 = '#0056D2';
-  const rating = (Math.random() * (5 - 3.5) + 3.5).toFixed(1);
+  // const rating = (Math.random() * (5 - 3.5) + 3.5).toFixed(1);
 
   const activeUser = useSelector((state) => state.auth.user);
 
@@ -72,9 +72,9 @@ const CourseBanner = ({ course }) => {
                   -side development in three comprehensive courses.
                 </span>
               </p>
-
+      
               {/* Rating Container */}
-              <Grid Grid container spacing={1} style={{ marginTop: '20px' }}>
+              {/* <Grid Grid container spacing={1} style={{ marginTop: '20px' }}>
                 <Grid item>
                   <Rating
                     name="simple-controlled"
@@ -92,7 +92,7 @@ const CourseBanner = ({ course }) => {
                     {Math.ceil(Math.random() * (4500 - 2500) + 2500)} ratings
                   </p>
                 </Grid>
-              </Grid>
+              </Grid> */} 
 
               {/* Instructor container */}
               <Grid

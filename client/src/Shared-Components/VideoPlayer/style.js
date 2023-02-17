@@ -7,7 +7,7 @@ export default makeStyles(() => ({
   playerDiv: {
     position: 'relative',
     width: '90%',
-    height:'50%',
+    height:'400px',
     margin: 'auto',
     marginTop: '20px',
   },
@@ -23,12 +23,12 @@ export default makeStyles(() => ({
     justifyContent: 'space-between',
     zIndex: 1,
   },
-  bookmarkCont: {
-    width: '0%',
-    margin: 'auto',
-    overflowY: 'scroll',
-    height: '0px',
-  },
+  // bookmarkCont: {
+  //   width: '0%',
+  //   margin: 'auto',
+  //   overflowY: 'scroll',
+  //   height: '0px',
+  // },
   controlBtn: {
     color: '#fff',
     fontSize: 50,
@@ -47,7 +47,7 @@ export default makeStyles(() => ({
   volSlider: {
     width: 50,
   },
-  bookmarkBtn: {
-    background: '#0056D2',
-  },
+  // bookmarkBtn: {
+  //   background: '#0056D2',
+  // },
 }));
