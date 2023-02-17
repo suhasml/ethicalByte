@@ -202,7 +202,7 @@ export const VidPlayer = () => {
           <ReactPlayer
             url={videoUrl}
             width="100%"
-            height="90%"
+            height="100%"
             muted={muted}
             ref={playerRef}
             playing={playing}
